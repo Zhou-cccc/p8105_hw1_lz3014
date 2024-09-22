@@ -74,3 +74,10 @@ factor_to_num <- as.numeric(pull(data_p2, vec_factor))
 - **logical to numeric:** `TRUE` became `1`, `FALSE` became `0` (because R treat `TRUE` as `1`, `FALSE` as `0`)  
 - **character to numeric:** return NA and warning (because these characters represent letters rather than numbers)  
 - **factors to numeric:** `level_1` became `1`, `level_2` became `2`, `level_3` became `3` (because factors are stored as integers)  
+
+
+#### 4. explanation of mean calculation:  
+- **mean of numeric vec:** works, because numeric values are usable for mathematical operations  
+- **mean of logical vec:** works, because R will take `TRUE` as `1` and compute the proportion of `TRUE` values  
+- **mean of character vec:** doesn't work, because strings cannot participate in numerical calculations  
+- **mean of factor vec:** doesn't work, because mean function won't automatically convert factors to integers and calculate them
