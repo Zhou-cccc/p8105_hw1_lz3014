@@ -37,3 +37,16 @@ penguins |>
 
 ggsave("Scatterplot of flipper length vs bill length.png")
 ```
+
+
+# Problem 2
+#### 1. create a data frame (seed:0920):
+```{r}
+data_p2 <- tibble(
+  vec_num = rnorm(10),
+  vec_logi = vec_num > 0,
+  vec_char = c("a","b","c","d","e","f","g","h","i","j"),
+  vec_factor = factor(rep(c("level_1","level_2","level_3"), length.out = 10))
+)
+data_p2
+```
