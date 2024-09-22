@@ -42,6 +42,7 @@ ggsave("Scatterplot of flipper length vs bill length.png")
 # Problem 2
 #### 1. create a data frame (seed:0920):
 ```{r}
+set.seed(0920)
 data_p2 <- tibble(
   vec_num = rnorm(10),
   vec_logi = vec_num > 0,
@@ -50,3 +51,13 @@ data_p2 <- tibble(
 )
 data_p2
 ```
+
+
+#### 2. try to take the mean of each variable:
+```{r}
+mean(pull(data_p2, vec_num), na.rm = TRUE) #works
+mean(pull(data_p2, vec_logi), na.rm = TRUE) #works
+mean(pull(data_p2, vec_char), na.rm = TRUE) #doesn't work, return NA and warning
+mean(pull(data_p2, vec_factor), na.rm = TRUE) #doesn't work, return NA and warning
+```
+
