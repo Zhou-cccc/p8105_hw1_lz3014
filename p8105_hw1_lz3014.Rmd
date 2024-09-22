@@ -16,9 +16,24 @@ library(tidyverse)
 data("penguins", package = "palmerpenguins")
 ```
 
+
 #### 2. description of the `penguins` dataset
 - **names of variables:** `r colnames(penguins)`  
 - **size of tibble:** this tibble has `r nrow(penguins)` rows and `r ncol(penguins)` columns  
 - **mean flipper length:** `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)` mm  
 
 
+#### 3. draw and save scatterplot of flipper_length_mm vs bill_length_mm, colored by species
+```{r}
+penguins |>
+  drop_na(bill_length_mm, flipper_length_mm) |>
+  ggplot(aes(x = bill_length_mm, 
+             y = flipper_length_mm, 
+             color = species)) + 
+  geom_point() + 
+  labs(title = "Scatterplot of flipper length vs bill length", 
+       x = "flipper length (mm)", 
+       y = "bill length (mm)")
+
+ggsave("Scatterplot of flipper length vs bill length.png")
+```
