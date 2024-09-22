@@ -1,4 +1,24 @@
 ---
 title: "p8105_hw1_lz3014"
+author: "Liqi Zhou"
+date: 2024-09-20
 output: github_document
 ---
+
+```{r}
+library(palmerpenguins)
+library(tidyverse)
+```
+
+# Problem 1
+#### 1. load and view the `penguins` dataset:
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+#### 2. description of the `penguins` dataset
+- **names of variables:** `r colnames(penguins)`  
+- **size of tibble:** this tibble has `r nrow(penguins)` rows and `r ncol(penguins)` columns  
+- **mean flipper length:** `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)` mm  
+
+
